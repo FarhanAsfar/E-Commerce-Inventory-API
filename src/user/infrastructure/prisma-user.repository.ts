@@ -33,7 +33,7 @@ export class PrismaUserRepository implements UserRepository {
                 email,
             }
         });
-        if(exists) return null;
+        if(!exists) return null;
 
         return new User({
             id: exists.id,
