@@ -1,7 +1,7 @@
 import { User } from "./user.entity";
 
-export interface UserRepository {
-    register(user: User): Promise<User>;
+export abstract class UserRepository {
+    abstract register(user: User): Promise<User>;
 
-    login(email: string): Promise<User | null>;
+    abstract login(email: string): Promise<User | null>;
 }
