@@ -6,18 +6,18 @@ import { RegisterUserUseCase } from 'src/user/application/register-user.usecase'
 
 @Controller('auth')
 export class AuthController {
-  constructor(
-    private readonly registerUserUseCase: RegisterUserUseCase,
-    private readonly loginUserUseCase: LoginUserUseCase,
-  ) {}
+    constructor(
+        private readonly registerUserUseCase: RegisterUserUseCase,
+        private readonly loginUserUseCase: LoginUserUseCase,
+    ) {}
 
-  @Post('register')
-  async register(@Body() createUserDto: CreateUserDto) {
-    return await this.registerUserUseCase.execute(createUserDto);
-  }
+    @Post('register')
+    async register(@Body() createUserDto: CreateUserDto) {
+        return await this.registerUserUseCase.execute(createUserDto);
+    }
 
-  @Post('login')
-  async login(@Body() CreateUserDto: LoginDto) {
-    return await this.loginUserUseCase.execute(CreateUserDto.email, CreateUserDto.password);
-  }
+    @Post('login')
+    async login(@Body() CreateUserDto: LoginDto) {
+        return await this.loginUserUseCase.execute(CreateUserDto.email, CreateUserDto.password);
+    }
 }
